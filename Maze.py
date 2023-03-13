@@ -13,14 +13,14 @@ WEST = 'w'
 
 if __name__ == "__main__":
     grid = [
-        [ WALL,  WALL,  WALL,  WALL,  WALL,  WALL,  WALL,  WALL,  WALL, WALL],
-        [START, EMPTY,  WALL,  WALL, EMPTY, EMPTY, EMPTY, EMPTY,  WALL, WALL],
-        [ WALL, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY,  WALL, EMPTY,  WALL, WALL],
-        [ WALL,  WALL,  WALL,  WALL, EMPTY,  WALL, EMPTY,  WALL, EMPTY, WALL],
-        [ WALL, EMPTY, EMPTY, EMPTY, EMPTY,  WALL, EMPTY, EMPTY, EMPTY, WALL],
-        [ WALL,  WALL, EMPTY,  WALL,  WALL, EMPTY, EMPTY,  WALL, EMPTY, WALL],
-        [ WALL,  WALL, EMPTY, EMPTY, EMPTY, EMPTY,  WALL,  WALL, EMPTY,  END],
-        [ WALL,  WALL,  WALL,  WALL,  WALL,  WALL,  WALL,  WALL,  WALL, WALL],
+        [ EMPTY,  WALL,  EMPTY,  WALL,  EMPTY,  WALL,  EMPTY,  WALL,  EMPTY, WALL],
+        [START, EMPTY,  WALL,  WALL, EMPTY, WALL, EMPTY, WALL,  WALL, WALL],
+        [ WALL, EMPTY, WALL, EMPTY, WALL, EMPTY,  WALL, EMPTY,  WALL, WALL],
+        [ EMPTY,  WALL, EMPTY,  WALL, EMPTY,  WALL, EMPTY,  WALL, EMPTY, WALL],
+        [ WALL, WALL, EMPTY, WALL, EMPTY,  WALL, EMPTY, WALL, EMPTY, WALL],
+        [ EMPTY,  WALL, EMPTY,  WALL,  EMPTY, EMPTY, EMPTY,  WALL, EMPTY, WALL],
+        [ WALL,  WALL, EMPTY, WALL, EMPTY, EMPTY,  WALL,  WALL, EMPTY,  END],
+        [ EMPTY,  EMPTY,  WALL,  WALL,  EMPTY,  WALL,  EMPTY,  EMPTY,  WALL, WALL],
     ]
                     
     Viewer.view(grid)
@@ -56,13 +56,13 @@ if __name__ == "__main__":
             currentCol -= 1
         
         else:
-            print("MESSAGE 1") # Invalid direction.
+            print("You have no idea where you are going") # Invalid direction.
         
         if (currentRow < 0 or currentCol < 0 
                         or currentRow >= len(grid) 
                         or currentCol >= len(grid[currentRow])):
             done = True
-            print("MESSAGE 2") # Out of bounds.
+            print("You fall into the chasm of doom") # Out of bounds.
             
         else:
             if grid[currentRow][currentCol] == EMPTY:
@@ -70,12 +70,12 @@ if __name__ == "__main__":
                 
             elif grid[currentRow][currentCol] == WALL:
                 done = True
-                print("MESSAGE 3") # Hit wall.
+                print("You stumble blindly into a solid concrete wall") # Hit wall.
 
             elif grid[currentRow][currentCol] == END:
                 done = True
                 solved = True
-                print("MESSAGE 4") # Solved.
+                print("SOLVED!") # Solved.
                 
             else:
                 pass # Do nothing
@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
 
     if not solved:
-        print("MESSAGE 5") # Did not reach the end.
+        print("You have failed to escape. Future archeologists gaze upon your remains in bafflement") # Did not reach the end.
 
 
     Viewer.view(grid)
