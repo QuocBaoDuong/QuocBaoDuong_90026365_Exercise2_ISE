@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
 
     if not solved:
-        print("You have failed to escape. Future archeologists gaze upon your remains in bafflement") # Did not reach the end.
+        print("You have failed to escape. Good luck in your next journey, or not.") # Did not reach the end.
 
 
     Viewer.view(grid)
